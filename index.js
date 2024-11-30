@@ -2,7 +2,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import DB_Connection from "./connection/dbConnection.js";
-import router from "./router/router.js";
+import router from "./router/routers.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
@@ -12,8 +12,10 @@ const DATABASE_URL = process.env.DBURL;
 const app = express();
 
 // Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Parse JSON bodies
 app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use("/api/uploads", express.static("./uploads"));
 
 // Database connection
 DB_Connection(DATABASE_URL);
