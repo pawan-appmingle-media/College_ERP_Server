@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Routes for Department Management
 router.post(
-  "/department",
+  "/",
   upload.single("image"), // Middleware to handle file upload
   departmentController.addDepartment // Controller method to add a department
 );

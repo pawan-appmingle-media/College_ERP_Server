@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const DepartmentSchema = new mongoose.Schema({
-  name: {
+  departmentName: {
     type: String,
-    required: [true, "Department name is required"], // Use 'name' instead of 'department'
+    required: [true, "Department name is required"],
   },
   description: {
     type: String,

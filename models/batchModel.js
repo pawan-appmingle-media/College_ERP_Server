@@ -14,7 +14,7 @@ const batchSchema = new mongoose.Schema(
       type: String,
       required: [true, "Session is required"],
     },
-    batchName: {
+    batch: {
       type: String,
       required: [true, "Batch Name is required"],
     },

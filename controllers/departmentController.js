@@ -4,17 +4,18 @@ class departmentController {
   // Add a new department
   static addDepartment = async (req, res) => {
     const { name, description } = req.body;
-    const img = req.file ? req.file.filename : null;
+    const image = req.file ? req.file.filename : null;
+    // console.log({ name, description });
 
     try {
-      if (!img) {
+      if (!image) {
         return res.status(400).json({ error: "No image uploaded" });
       }
 
       const newDepartment = new DepartmentModel({
-        name,
+        departmentName: name,
         description,
-        image: img,
+        image,
       });
 
       const savedDepartment = await newDepartment.save();
